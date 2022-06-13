@@ -1,0 +1,25 @@
+name: Drive Sync
+on:
+  workflow_dispatch:
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    container: subekti13/drive-sync:latest
+    steps:
+       
+        - name: Write .env File
+          run: |
+              echo '${{ secrets.DOTENV }}' >> .env
+        
+          
+        - name: Create Config
+          run: ./drive_init_config
+      
+        - name: Mount Drive1 and Drive2
+          run: ./drive_mount
+          
+        - name: List Drive1
+          run: cd drive1 && ls
+          
+        - name: List Drive2
+          run: cd drive2 && ls
