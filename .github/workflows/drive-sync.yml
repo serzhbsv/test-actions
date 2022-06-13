@@ -28,6 +28,9 @@ jobs:
 #             sudo systemctl start drive1.service
 #             cd ~drive1 && ls -lah
 
-          run: rclone mount drive1 ~/drive1/ > /dev/null &
+          run: |
+            echo "rclone mount --config=~/.config/rclone/rclone.conf drive1: ~/drive1/ > /dev/null &" >> mount.sh
+            cat mount.sh
+            bash mount.sh
           
         - run: cd ~/drive1 && ls -lah
