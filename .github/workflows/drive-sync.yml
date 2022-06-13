@@ -23,6 +23,7 @@ jobs:
           run: |
             mkdir drive1 drive2
             which rclone
-            "rclone mount drive1: ./drive1"
+            echo "/usr/bin/rclone mount drive1: ./drive1" >> mount.sh
+            bash mount.sh
             cd drive1 && ls -lah
 
