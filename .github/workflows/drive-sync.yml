@@ -22,7 +22,7 @@ jobs:
         - name: Mount Drive1
           run: |
             mkdir drive1 drive2
-            ls -lah
+            which rclone
             "rclone mount drive1: ./drive1"
             cd drive1 && ls -lah
 
