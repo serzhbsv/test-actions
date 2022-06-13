@@ -23,5 +23,5 @@ jobs:
             bash mount_drive1.sh
             bash mount_drive2.sh
           
-        - run: cd ~/drive1 && ls -lah
-        - run: cd ~/drive2 && ls -lah
+        - run: cd drive1 && ls -lah
+        - run: cd drive2 && ls -lah
