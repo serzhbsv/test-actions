@@ -10,13 +10,12 @@ jobs:
         - name: Write .env File
           run: |
               echo '${{ secrets.DOTENV_DRIVE_SYNC }}' >> .env
-              ls
               
         - name: Create Config
-          run: ./drive_init_config
+          run: drive_init_config && ls && pwd
       
         - name: Mount Drive1 and Drive2
-          run: ./drive_mount
+          run: drive_mount
           
         - name: List Drive1
           run: cd drive1 && ls
