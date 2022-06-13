@@ -13,11 +13,6 @@ jobs:
           run: |
             wget -O gen_config https://gist.githubusercontent.com/subekti404dev/3297651428c31b813c06857f88f19365/raw/5ade38cb1cf4817f78083b8567ca403b1e8c076e/drive_init_config
             bash gen_config
-
-        - name: LS
-          run: |
-            ls
-            cat rclone.conf
           
         - name: Install RClone
           run:  curl https://rclone.org/install.sh | sudo bash
@@ -26,6 +21,6 @@ jobs:
           run: |
             mkdir drive1 drive2
             ls -lah
-            "/usr/local/bin/rclone mount --config=./rclone.conf drive1: ./drive1 > /dev/null"
-            "/usr/local/bin/rclone mount --config=./rclone.conf drive2: ./drive2 > /dev/null"
+            "rclone mount --config=./rclone.conf drive1: ./drive1 > /dev/null"
+            "rclone mount --config=./rclone.conf drive2: ./drive2 > /dev/null"
 
