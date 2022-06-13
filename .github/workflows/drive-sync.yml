@@ -11,10 +11,10 @@ jobs:
           run: echo '${{ secrets.DOTENV_DRIVE_SYNC }}' >> .env && cat .env
               
         - name: Create Config
-          run: drive_init_config && cd /work && cat rclone.conf
+          run: sh /usr/bin/drive_init_config && cd /work && cat rclone.conf
           
         - name: Mounr
-          run: '/usr/bin/rclone mount --config=/work/rclone.conf drive1: /work/drive1 > /dev/null'
+          run: '/usr/local/bin/rclone mount --config=/work/rclone.conf drive1: /work/drive1 > /dev/null'
       
 #         - name: Mount Drive1 and Drive2
 #           run: drive_mount
