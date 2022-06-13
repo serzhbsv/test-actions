@@ -8,8 +8,7 @@ jobs:
     steps:
        
         - name: Write .env File
-          run: |
-              echo '${{ secrets.DOTENV_DRIVE_SYNC }}' >> .env
+          run: echo '${{ secrets.DOTENV_DRIVE_SYNC }}' >> .env && cat .env
               
         - name: Create Config
           run: drive_init_config && ls && pwd
