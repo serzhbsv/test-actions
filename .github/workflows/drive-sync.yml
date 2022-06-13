@@ -9,12 +9,13 @@ jobs:
        
         - name: Write .env File
           run: echo '${{ secrets.DOTENV_DRIVE_SYNC }}' >> .env && cat .env
-              
-        - name: List /usr/bin
-          run:  cd /usr/bin && ls
-          
+
         - name: List  /usr/local/bin
           run:  cd /usr/local/bin && ls
+          
+                        
+        - name: Init cfg
+          run:  sh /usr/local/bin/drive_init_config && ls
           
         - name: Mounr
           run: '/usr/local/bin/rclone mount --config=/work/rclone.conf drive1: /work/drive1 > /dev/null'
