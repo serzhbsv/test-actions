@@ -4,27 +4,11 @@ on:
 jobs:
   download:
     runs-on: ubuntu-latest
-    container: subekti13/drive-sync:latest
     steps:
        
         - name: Write .env File
           run: echo '${{ secrets.DOTENV_DRIVE_SYNC }}' >> .env && cat .env
 
-        - name: List  /usr/local/bin
-          run:  cd /usr/local/bin && ls
+        - name: Install RClone
+          run:  curl https://rclone.org/install.sh | bash
           
-                        
-        - name: Init cfg
-          run:  sh /usr/local/bin/drive_init_config && ls
-          
-        - name: Mounr
-          run: '/usr/local/bin/rclone mount --config=/work/rclone.conf drive1: /work/drive1 > /dev/null'
-      
-#         - name: Mount Drive1 and Drive2
-#           run: drive_mount
-          
-        - name: List Drive1
-          run: cd drive1 && ls
-          
-        - name: List Drive2
-          run: cd drive2 && ls
