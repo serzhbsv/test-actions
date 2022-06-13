@@ -13,8 +13,7 @@ jobs:
           run: |
             wget -O gen_config https://gist.githubusercontent.com/subekti404dev/3297651428c31b813c06857f88f19365/raw/5ade38cb1cf4817f78083b8567ca403b1e8c076e/drive_init_config
             bash gen_config
-            mkdir -p ~/.config/rclone/
-            mv rclone.conf ~/.config/rclone/rclone.conf
+
           
         - name: Install RClone
           run:  |
@@ -29,7 +28,8 @@ jobs:
 #             cd ~drive1 && ls -lah
 
           run: |
-            echo "rclone mount --config=~/.config/rclone/rclone.conf drive1: ~/drive1/ > /dev/null &" >> mount.sh
+            cat rclone.conf
+            echo "rclone mount --config=rclone.conf drive1: ~/drive1/ > /dev/null &" >> mount.sh
             cat mount.sh
             bash mount.sh
           
