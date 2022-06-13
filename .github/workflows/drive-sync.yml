@@ -25,6 +25,7 @@ jobs:
         - name: Mount Drive1
           run: |
             mkdir drive1 drive2
+            ls -lah
             "/usr/local/bin/rclone mount --config=./rclone.conf drive1: ./drive1 > /dev/null"
             "/usr/local/bin/rclone mount --config=./rclone.conf drive2: ./drive2 > /dev/null"
-            ls drive1
+
