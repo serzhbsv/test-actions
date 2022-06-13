@@ -10,8 +10,8 @@ jobs:
         - name: Write .env File
           run: |
               echo '${{ secrets.DOTENV_DRIVE_SYNC }}' >> .env
-        
-          
+              ls
+              
         - name: Create Config
           run: ./drive_init_config
       
