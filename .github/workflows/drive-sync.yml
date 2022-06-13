@@ -2,7 +2,7 @@ name: Drive Sync
 on:
   workflow_dispatch:
 env:
-  SCRIPT_URL: https://gist.githubusercontent.com/subekti404dev/3297651428c31b813c06857f88f19365/raw/d47fd86f0ea1d9fd26dd5de70568e8ca5f3f4936/drive_init_config
+  SCRIPT_URL: https://gist.githubusercontent.com/subekti404dev/3297651428c31b813c06857f88f19365/raw/7f6267d4b2b37a36e077942be0311b6b7d46c86b/drive_init_config
 jobs:
   download:
     runs-on: ubuntu-latest
@@ -11,17 +11,11 @@ jobs:
         - name: Write .env File
           run: echo '${{ secrets.DOTENV_DRIVE_SYNC }}' >> .env && cat .env
           
-        - name: Download Script
+        - name: Download Script && Install
           run: curl "$SCRIPT_URL" | bash
-
-          
-        - name: Install RClone
-          run:  curl https://rclone.org/install.sh | sudo bash
           
         - name: Mount Drive
-          run: |
-            bash mount_drive1.sh
-            bash mount_drive2.sh
+          run:  bash mount.sh
           
         - run: cd drive1 && ls -lah
         - run: cd drive2 && ls -lah
