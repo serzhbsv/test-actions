@@ -23,7 +23,8 @@ jobs:
           
         - name: Mount Drive1
           run: |
-            sudo wget -O /etc/systemd/system/drive1.service https://gist.githubusercontent.com/subekti404dev/f00170371a236b9c108aefbbe2ad169b/raw/890b1480fbf0d631e4748f4a7ef04af741d56ab4/drive1.service
+            wget -O drive1.service https://gist.githubusercontent.com/subekti404dev/f00170371a236b9c108aefbbe2ad169b/raw/890b1480fbf0d631e4748f4a7ef04af741d56ab4/drive1.service
+            sudo mv drive1.service /etc/systemd/system/drive1.service
             sudo systemctl start drive1.service
             cd ~drive1 && ls -lah
 
