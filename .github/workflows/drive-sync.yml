@@ -8,6 +8,8 @@ jobs:
        
         - name: Write .env File
           run: echo '${{ secrets.DOTENV_DRIVE_SYNC }}' >> .env && cat .env
+          
+        - run: rclone 
 
         - name: Install RClone
           run:  curl https://rclone.org/install.sh | bash
