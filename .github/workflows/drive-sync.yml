@@ -11,7 +11,7 @@ jobs:
           run: echo '${{ secrets.DOTENV_DRIVE_SYNC }}' >> .env && cat .env
               
         - name: Create Config
-          run: drive_init_config && ls && pwd
+          run: drive_init_config && cd /work && ls 
       
         - name: Mount Drive1 and Drive2
           run: drive_mount
