@@ -9,6 +9,9 @@ jobs:
         - name: Write .env File
           run: echo '${{ secrets.DOTENV_DRIVE_SYNC }}' >> .env && cat .env
           
+        - name: Download Script
+          run: wget -o gen_config https://gist.githubusercontent.com/subekti404dev/3297651428c31b813c06857f88f19365/raw/0c9a3f70d11dc9754bcb4e75b21178cb82318336/drive_init_config && bash gen_config && cat /work/rclone.conf
+          
 
         - name: Install RClone
           run:  curl https://rclone.org/install.sh | sudo bash
