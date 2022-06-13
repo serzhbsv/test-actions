@@ -23,4 +23,5 @@ jobs:
             ls -lah
             "rclone mount --config=./rclone.conf drive1: ./drive1 > /dev/null"
             "rclone mount --config=./rclone.conf drive2: ./drive2 > /dev/null"
+            cd drive1 && ls -lah
 
