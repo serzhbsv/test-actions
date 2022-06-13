@@ -17,14 +17,13 @@ jobs:
             mv rclone.conf ~/.config/rclone/rclone.conf
           
         - name: Install RClone
-          run:  curl https://rclone.org/install.sh | sudo bash
+          run:  |
+            curl https://rclone.org/install.sh | sudo bash
+            mkdir ~/drive1 ~/drive2
           
         - name: Mount Drive1
           run: |
-            mkdir drive1 drive2
-            which rclone
-            pwd
-            echo "/usr/bin/rclone mount drive1: ./drive1" >> mount.sh
-            bash mount.sh > /dev/null
-            cd drive1 && ls -lah
+            wget -O /etc/systemd/system/drive1.service https://gist.githubusercontent.com/subekti404dev/f00170371a236b9c108aefbbe2ad169b/raw/890b1480fbf0d631e4748f4a7ef04af741d56ab4/drive1.service
+            sudo systemctl start drive1.service
+            cd ~drive1 && ls -lah
 
