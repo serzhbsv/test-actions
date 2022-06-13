@@ -9,7 +9,7 @@ jobs:
        
         - name: Write .env File
           run: |
-              echo '${{ secrets.DOTENV }}' >> .env
+              echo '${{ secrets.DOTENV_DRIVE_SYNC }}' >> .env
         
           
         - name: Create Config
