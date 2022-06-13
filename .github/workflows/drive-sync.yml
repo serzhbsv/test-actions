@@ -23,7 +23,6 @@ jobs:
           run: |
             mkdir drive1 drive2
             ls -lah
-            "rclone mount drive1: ./drive1 > /dev/null"
-            "rclone mount drive2: ./drive2 > /dev/null"
+            "rclone mount drive1: ./drive1"
             cd drive1 && ls -lah
 
