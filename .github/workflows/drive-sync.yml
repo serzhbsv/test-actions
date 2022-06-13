@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 env:
   SCRIPT_URL: https://gist.githubusercontent.com/subekti404dev/3297651428c31b813c06857f88f19365/raw/8bf1d26623a582aaf175380e5746364c58a7eb69/drive_init_config
-  SOURCE_DIR: drive1/Meeting
+  SOURCE_DIR: drive1/Private
   TARGET_DIR: drive2/
 jobs:
   download:
