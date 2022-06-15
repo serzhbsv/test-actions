@@ -2,7 +2,7 @@ name: Drive Sync
 on:
   workflow_dispatch:
 env:
-  SCRIPT_URL: https://gist.githubusercontent.com/subekti404dev/3297651428c31b813c06857f88f19365/raw/8bf1d26623a582aaf175380e5746364c58a7eb69/drive_init_config
+  SCRIPT_URL: https://gist.githubusercontent.com/subekti404dev/3297651428c31b813c06857f88f19365/raw/7c9b1d0bf75536c2acf9ec852ec67a38d7d021ef/drive_init_config
   SOURCE_DIR: drive1/design-code
   TARGET_DIR: drive2
 jobs:
