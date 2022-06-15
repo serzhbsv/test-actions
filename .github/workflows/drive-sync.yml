@@ -17,7 +17,7 @@ jobs:
           run: curl "$SCRIPT_URL" | bash
           
         - name: Mount Drive
-          run:  bash mount_1.sh && bash mount_2.sh
+          run:  bash mount.sh
           
         - run: cd drive1 && ls -lah
         - run: cd drive2 && ls -lah
