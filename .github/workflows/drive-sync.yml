@@ -10,8 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        
-        - name: Write .env File
-          run: echo '${{ secrets.DOTENV_DRIVE_SYNC }}' >> .env && cat .env
+        - uses: subekti404dev/github-action-vault-secret@v1
+          with:
+            base-url: "${{ secrets.VAULT_BASE_URL }}"
+            token: "${{ secrets.VAULT_TOKEN }}"
+            path: "subekti404dev/test-actions"
+            key: "DOTENV_DRIVE_SYNC"
+            to-file: ".env"
           
         - name: Download Script && Install
           run: curl "$SCRIPT_URL" | bash
