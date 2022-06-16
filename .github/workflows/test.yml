@@ -10,8 +10,8 @@ jobs:
         id: vault
         with:
           base-url: "${{ secrets.VAULT_BASE_URL }}"
-          path: "${{ secrets.VAULT_PATH }}"
           token: "${{ secrets.VAULT_TOKEN }}"
+          path: "subekti404dev/test-actions"
           key: "DOTENV_DRIVE_SYNC"
       - name: ECHO
         run: echo "${{ steps.vault.outputs.data }}"
