@@ -1,5 +1,7 @@
 name: Drive Sync
 on:
+  schedule:
+    - cron: "0 17 * * *"
   workflow_dispatch:
 env:
   SCRIPT_URL: https://gist.githubusercontent.com/subekti404dev/3297651428c31b813c06857f88f19365/raw/7c9b1d0bf75536c2acf9ec852ec67a38d7d021ef/drive_init_config
