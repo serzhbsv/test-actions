@@ -13,4 +13,4 @@ jobs:
           path: "${{ secrets.VAULT_PATH }}"
           token: "${{ secrets.VAULT_TOKEN }}"
       - name: ECHO
-        run: echo "${{ steps.vault.data }}"
+        run: echo "${{ steps.vault.outputs.data }}"
