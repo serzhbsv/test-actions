@@ -1,0 +1,16 @@
+
+name: Test
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: subekti404dev/github-action-vault-secret@v1
+        id: vault
+        with:
+          base-url: "${{ secrets.VAULT_BASE_URL }}"
+          path: "${{ secrets.VAULT_PATH }}"
+          token: "${{ secrets.VAULT_TOKEN }}"
+      - name: ECHO
+        run: echo "${{ steps.vault.data }}"
