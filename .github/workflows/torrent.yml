@@ -11,10 +11,10 @@ jobs:
     container: subekti13/torrent-downloader:latest
     steps:
        
-        - name: Write .env File
-          run: |
-              echo '${{ secrets.DOTENV }}' >> .env
-        
+#         - name: Write .env File
+#           run: |
+#               echo '${{ secrets.DOTENV }}' >> .env
+        - run: node /app/getconfig.js ${{ secrets.RCLONE_CONF_URL }}
           
         - name: Dowload File
           run: node /app/download.js ${{ github.event.inputs.url }}
