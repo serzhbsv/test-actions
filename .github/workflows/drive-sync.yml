@@ -13,14 +13,14 @@ jobs:
     steps:
        
         - uses: subekti404dev/github-action-vault-secret@v1
+          id: vault
           with:
-            id: vault
             base-url: "${{ secrets.VAULT_BASE_URL }}"
             token: "${{ secrets.VAULT_TOKEN }}"
             path: "subekti404dev/test-actions"
             key: "RCLONE_CONF_URL"
 
-        - run: wget -O rclone.conf ${{ steps.vault.outputs.data }}
+        - run: wget -O rclone.conf "${{ steps.vault.outputs.data }}"
         
         - name: Download Script && Install
           run: curl "$SCRIPT_URL" | bash
