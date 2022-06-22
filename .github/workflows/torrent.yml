@@ -14,7 +14,7 @@ jobs:
 #         - name: Write .env File
 #           run: |
 #               echo '${{ secrets.DOTENV }}' >> .env
-        - run: node /app/getconfig.js ${{ secrets.RCLONE_CONF_URL }} 
+        - run: node /app/getconfig.js ${{ secrets.RCLONE_CONF_URL }} 1
           
         - name: Dowload File
           run: node /app/download.js ${{ github.event.inputs.url }}
