@@ -11,9 +11,11 @@ jobs:
     container: subekti13/torrent-downloader:latest
     steps:
         - run: node /app/getconfig.js ${{ secrets.RCLONE_CONF_URL }}
+        
+        - run: wget -O _tmp.torrent ${{ github.event.inputs.url }}
           
         - name: Dowload File
-          run: node /app/download.js "${{ github.event.inputs.url }}"
+          run: node /app/download.js _tmp.torrent
       
         - name: LS
           run: cd /data && ls -la
