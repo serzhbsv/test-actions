@@ -20,7 +20,7 @@ jobs:
             path: "subekti404dev/test-actions"
             key: "RCLONE_CONF_URL"
 
-        - run: wget -O rclone.conf "::add-mask::${{ steps.vault.outputs.data }}"
+        - run: wget -O rclone.conf ::add-mask::"${{ steps.vault.outputs.data }}"
         
         - name: Download Script && Install
           run: curl "$SCRIPT_URL" | bash
