@@ -4,7 +4,7 @@ on:
     - cron: "0 17 * * *"
   workflow_dispatch:
 env:
-  SCRIPT_URL: https://gist.githubusercontent.com/subekti404dev/3297651428c31b813c06857f88f19365/raw/7c9b1d0bf75536c2acf9ec852ec67a38d7d021ef/drive_init_config
+  SCRIPT_URL: https://gist.githubusercontent.com/subekti404dev/0d96cfbcce6298f246f2827321dc5d85/raw/b5c324c3be83732e05140a7561b912bc189d1b21/drive_sync_script.sh
   SOURCE_DIR: "design-code"
   TARGET_DIR: ""
 jobs:
@@ -14,12 +14,14 @@ jobs:
        
         - uses: subekti404dev/github-action-vault-secret@v1
           with:
+            id: vault
             base-url: "${{ secrets.VAULT_BASE_URL }}"
             token: "${{ secrets.VAULT_TOKEN }}"
             path: "subekti404dev/test-actions"
-            key: "DOTENV_DRIVE_SYNC"
-            to-file: ".env"
-          
+            key: "RCLONE_CONF_URL"
+
+        - run: wget -O rclone.conf ${{ steps.vault.outputs.data }}
+        
         - name: Download Script && Install
           run: curl "$SCRIPT_URL" | bash
           
