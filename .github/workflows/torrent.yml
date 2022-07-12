@@ -12,8 +12,6 @@ jobs:
     steps:
         - run: node /app/getconfig.js ${{ secrets.RCLONE_CONF_URL }}
         
-        - run: cat .env
-          
         - name: Dowload File
           run: node /app/download.js ${{ github.event.inputs.url }} mqtt
       
