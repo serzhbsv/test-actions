@@ -8,15 +8,15 @@ on:
 jobs:
   download:
     runs-on: ubuntu-latest
-    container: subekti13/torrent-downloader:latest
+    container: subekti13/torrent-downloader:2.0
     steps:
-        - run: node /app/getconfig.js ${{ secrets.RCLONE_CONF_URL }}
+        - run: node /app/main.js config ${{ secrets.RCLONE_CONF_URL }}
         
         - name: Dowload File
-          run: node /app/download.js ${{ github.event.inputs.url }} mqtt
+          run: node /app/main.js download ${{ github.event.inputs.url }} mqtt
       
         - name: LS
           run: cd /data && ls -la
           
         - name: Upload to Drive
-          run: node /app/upload.js 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
+          run: node /app/main.js upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
