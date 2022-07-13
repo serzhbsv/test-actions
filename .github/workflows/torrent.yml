@@ -8,7 +8,7 @@ on:
 jobs:
   download:
     runs-on: ubuntu-latest
-    container: subekti13/torrent-downloader:2.0
+    container: subekti13/torrent-downloader-v2
     steps:
         - run: node /app/main.js config ${{ secrets.RCLONE_CONF_URL }}
         
