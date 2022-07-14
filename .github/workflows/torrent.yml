@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     container: subekti13/torrent-downloader-v2
     steps:
-        - run: node /app/main.js config ${{ secrets.RCLONE_CONF_URL }}
+        - run: torrent config ${{ secrets.RCLONE_CONF_URL }}
         
         - name: Dowload File
-          run: node /app/main.js download ${{ github.event.inputs.url }} mqtt
+          run: torrent download ${{ github.event.inputs.url }} mqtt
       
         - name: LS
           run: ls /data
           
         - name: Upload to Drive
-          run: node /app/main.js upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
+          run: torrent upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
