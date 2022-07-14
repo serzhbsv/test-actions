@@ -16,7 +16,7 @@ jobs:
           run: node /app/main.js download ${{ github.event.inputs.url }} mqtt
       
         - name: LS
-          run: cd /data && ls -la
+          run: tree /data
           
         - name: Upload to Drive
           run: node /app/main.js upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
