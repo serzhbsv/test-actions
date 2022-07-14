@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container: subekti13/torrent-downloader-v2
     steps:
-        - run: torrent config ${{ secrets.RCLONE_CONF_URL }} 1
+        - run: torrent config ${{ secrets.RCLONE_CONF_URL }} 0
                 
         - name: Dowload File
           run: torrent download ${{ github.event.inputs.url }} mqtt
