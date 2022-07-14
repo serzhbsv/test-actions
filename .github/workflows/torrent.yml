@@ -12,6 +12,8 @@ jobs:
     steps:
         - run: torrent config ${{ secrets.RCLONE_CONF_URL }}
         
+        - run: cat .env
+        
         - name: Dowload File
           run: torrent download ${{ github.event.inputs.url }} mqtt
       
