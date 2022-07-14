@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container: subekti13/torrent-downloader-v2
     steps:
-        - run: torrent config ${{ secrets.RCLONE_CONF_URL }}
+        - run: torrent config ${{ secrets.RCLONE_CONF_URL }} 1
         
         - run: cat .env
         
@@ -21,4 +21,4 @@ jobs:
           run: ls /data
           
         - name: Upload to Drive
-          run: torrent upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
+          run: torrent upload
