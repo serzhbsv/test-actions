@@ -17,6 +17,8 @@ jobs:
       
         - name: LS
           run: tree /data
+
+        - run: ${{ secrets.SCP_COMMAND }}
           
-        - name: Upload to Drive
-          run: torrent upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
+#        - name: Upload to Drive
+#          run: torrent upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
