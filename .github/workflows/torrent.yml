@@ -18,7 +18,7 @@ jobs:
         - name: LS
           run: tree /data
 
-        - run: ${{ secrets.SCP_COMMAND }}
+        - run: sshpass -p ${{ secrets.SCP_PASS }} scp -r /data/* ${{ secrets.SCP_HOST }}:~/
           
 #        - name: Upload to Drive
 #          run: torrent upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
