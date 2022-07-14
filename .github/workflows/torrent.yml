@@ -16,7 +16,7 @@ jobs:
           run: torrent download ${{ github.event.inputs.url }} mqtt
       
         - name: LS
-          run: ls /data
+          run: tree /data
           
         - name: Upload to Drive
           run: torrent upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
