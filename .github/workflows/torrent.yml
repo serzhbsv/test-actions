@@ -16,7 +16,7 @@ jobs:
           run: torrent download ${{ github.event.inputs.url }} mqtt
       
         - name: LS
-          run: tree /data
+          run: compress && tree /data
 
 #        - run: sshpass -p ${{ secrets.SCP_PASS }} rsync --progress -avz -e ssh /data/* ${{ secrets.SCP_HOST }}:~/downloads/
           
