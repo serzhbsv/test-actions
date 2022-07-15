@@ -13,7 +13,7 @@ jobs:
         - run: torrent config ${{ secrets.RCLONE_CONF_URL }}
                 
         - name: Dowload File
-          run: torrent download ${{ github.event.inputs.url }} mqtt
+          run: torrent download ${{ github.event.inputs.url }}
       
         - name: LS
           run: compress && tree /data
