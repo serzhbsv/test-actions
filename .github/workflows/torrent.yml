@@ -20,7 +20,7 @@ jobs:
 
 #        - run: sshpass -p ${{ secrets.SCP_PASS }} rsync --progress -avz -e ssh /data/* ${{ secrets.SCP_HOST }}:~/downloads/
           
-        - name: Upload to Drive
-          run: torrent upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
+#         - name: Upload to Drive
+#           run: torrent upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
         
-        - run: curl --upload-file /data/*.zip https://transfer.sh/anything.zip
+        - run: curl --upload-file "/data/*.zip" https://transfer.sh/anything.zip
