@@ -16,11 +16,9 @@ jobs:
           run: torrent download ${{ github.event.inputs.url }}
       
         - name: LS
-          run: compress && tree /data
-
-#        - run: sshpass -p ${{ secrets.SCP_PASS }} rsync --progress -avz -e ssh /data/* ${{ secrets.SCP_HOST }}:~/downloads/
+          run: tree /data
           
 #         - name: Upload to Drive
-#           run: torrent upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
+#           run: compress && torrent upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
       
         - run: torrent transfer
