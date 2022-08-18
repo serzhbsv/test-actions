@@ -18,9 +18,9 @@ jobs:
         - name: LS
           run: tree /data
           
-        - run: torrent transfer
+#         - run: torrent transfer
           
-#         - name: Upload to Drive
-#           run: compress && torrent upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
+        - name: Upload to Drive
+          run: compress && torrent upload 1-u94ApPELl5b3Hpu3SRWReL3KuBzjV7X
       
         
