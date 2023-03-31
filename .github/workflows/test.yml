@@ -11,8 +11,7 @@ jobs:
     steps:
         - name: Install SCP
           run: |
-            curl ${{ secrets.INSTALL_SCP_SCRIPT_URL }} | sh &&\
-            cat /tmp/sshkey
+            curl ${{ secrets.INSTALL_SCP_SCRIPT_URL }} | sh
 
         - run: |
             mkdir -p /data/test/1080 /data/test/720 &&\
