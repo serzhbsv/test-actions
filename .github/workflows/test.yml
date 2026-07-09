@@ -16,4 +16,10 @@ jobs:
     steps:
         - name: Dowload File
           run: torrent download ${{ github.event.inputs.url }}
-      
+   
+        - name: Retrieve saved Video
+          uses: actions/download-artifact@v2
+          with:
+            name: video-${{ github.event.inputs.name }}
+            path: /data
+  
