@@ -15,10 +15,13 @@ jobs:
     container: subekti13/torrent-downloader-v2
     steps:
         - name: Dowload File
-          run: torrent download ${{ github.event.inputs.url }}
-   
+          run: |
+                torrent download ${{ github.event.inputs.url }}
+                ls -l
+                ls -l /data
+                
         - name: Upload artifact
           uses: actions/upload-artifact@v4
           with:
             name: ${{ github.event.inputs.name }}
-            path: ${{ github.event.inputs.name }}
+            path: /data/${{ github.event.inputs.name }}
