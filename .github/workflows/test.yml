@@ -11,7 +11,7 @@ on:
         
 jobs:
   download:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     container: subekti13/torrent-downloader-v2
     steps:
         - name: Dowload File
